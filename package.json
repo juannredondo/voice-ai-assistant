@@ -1,0 +1,16 @@
+{
+  "name": "voice-ai-assistant",
+  "version": "1.0.0",
+  "description": "Asistente de IA por voz con wake word y respuesta en voz masculina",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

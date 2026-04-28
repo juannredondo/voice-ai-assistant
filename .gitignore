@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Electron build output
+dist/
+out/
+build/
+
+# Environment & secrets (NEVER commit API keys)
+.env
+.env.local
+*.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor directories
+.vscode/
+.idea/
+
+# Misc
+*.orig

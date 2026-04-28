@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice AI Assistant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Custom Title Bar -->
+  <div class="titlebar" id="titlebar">
+    <div class="titlebar-title">
+      <span class="titlebar-dot"></span>
+      Voice AI
+    </div>
+    <div class="titlebar-controls">
+      <button class="titlebar-btn minimize-btn" id="minimizeBtn" title="Minimizar">
+        <svg width="12" height="12" viewBox="0 0 12 12"><rect y="5" width="12" height="2" fill="currentColor"/></svg>
+      </button>
+      <button class="titlebar-btn close-btn" id="closeBtn" title="Minimizar a bandeja">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <!-- Setup Panel (API Key + Bot Name) -->
+    <div class="setup-panel" id="setupPanel">
+      <div class="setup-card">
+        <div class="setup-icon">🤖</div>
+        <h2>Configurar Asistente</h2>
+        <p class="setup-subtitle">Configurá tu asistente de IA por voz</p>
+
+        <div class="input-group">
+          <label for="botNameInput">Nombre del Bot</label>
+          <input type="text" id="botNameInput" placeholder="Atlas" autocomplete="off" />
+          <span class="input-hint">El bot te responderá cuando lo llames así</span>
+        </div>
+
+        <div class="input-group">
+          <label for="apiKeyInput">API Key de Gemini</label>
+          <input type="password" id="apiKeyInput" placeholder="AIzaSy..." autocomplete="off" />
+          <span class="input-hint">Conseguila gratis en aistudio.google.com</span>
+        </div>
+
+        <button class="btn-primary" id="saveSetupBtn">
+          <span>Comenzar</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Assistant Panel -->
+    <div class="main-panel" id="mainPanel" style="display: none;">
+      <!-- Status Header -->
+      <div class="status-header">
+        <div class="bot-info">
+          <div class="bot-avatar" id="botAvatar">
+            <div class="avatar-pulse"></div>
+            <span class="avatar-icon">🤖</span>
+          </div>
+          <div class="bot-details">
+            <h1 class="bot-name" id="botNameDisplay">Atlas</h1>
+            <span class="bot-status" id="botStatusText">Inactivo</span>
+          </div>
+        </div>
+        <button class="settings-btn" id="settingsBtn" title="Configuración">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </button>
+      </div>
+
+      <!-- Settings Dropdown -->
+      <div class="settings-dropdown" id="settingsDropdown" style="display: none;">
+        <div class="settings-content">
+          <div class="input-group compact">
+            <label for="editBotName">Nombre del Bot</label>
+            <input type="text" id="editBotName" placeholder="Atlas" />
+          </div>
+          <div class="input-group compact">
+            <label for="editApiKey">API Key</label>
+            <input type="password" id="editApiKey" placeholder="AIzaSy..." />
+          </div>
+          <button class="btn-small" id="saveSettingsBtn">Guardar</button>
+        </div>
+      </div>
+
+      <!-- Waveform Visualization -->
+      <div class="waveform-container" id="waveformContainer">
+        <div class="waveform-bg"></div>
+        <div class="waveform" id="waveform">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+        <div class="state-label" id="stateLabel">INACTIVO</div>
+      </div>
+
+      <!-- Toggle Button -->
+      <div class="toggle-section">
+        <button class="toggle-btn" id="toggleBtn">
+          <div class="toggle-inner">
+            <svg class="mic-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+        </button>
+        <p class="toggle-hint" id="toggleHint">Toca para activar</p>
+        <p class="shortcut-hint" id="shortcutHint" style="font-size: 11px; color: var(--text-dim); margin-top: 4px; display: none;">Tocá Ctrl+Espacio para hablar/enviar</p>
+      </div>
+
+      <!-- Conversation Log -->
+      <div class="conversation-section">
+        <h3 class="conversation-title">Conversación</h3>
+        <div class="conversation-log" id="conversationLog">
+          <div class="empty-state">
+            <span class="empty-icon">🎙️</span>
+            <p>Activá el asistente y tocá <br><b>Ctrl + Espacio</b> para hablar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
