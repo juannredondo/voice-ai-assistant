@@ -3,6 +3,9 @@
 <!-- HEADER -->
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6C63FF,100:A855F7&height=220&section=header&text=Voice%20AI%20Assistant&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Tu%20asistente%20de%20voz%20con%20IA%20powered%20by%20Gemini&descAlignY=60&descSize=20" width="100%" />
 
+[![GitHub Stars](https://img.shields.io/github/stars/juannredondo/voice-ai-assistant?style=for-the-badge&logo=github&color=A855F7)](https://github.com/juannredondo/voice-ai-assistant/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/juannredondo/voice-ai-assistant?style=for-the-badge&logo=github&color=6C63FF)](https://github.com/juannredondo/voice-ai-assistant/network)
+
 <br/>
 
 [![Electron](https://img.shields.io/badge/Electron-33.x-47848F?style=for-the-badge&logo=electron&logoColor=white)](https://www.electronjs.org/)
@@ -115,7 +118,7 @@ Antes de empezar, asegurate de tener instalado:
 ### 1. Cloná el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/voice-ai-assistant.git
+git clone https://github.com/juannredondo/voice-ai-assistant.git
 cd voice-ai-assistant
 ```
 
@@ -250,7 +253,7 @@ Este proyecto está bajo la licencia **MIT** — mirá el archivo [LICENSE](./LI
 
 <br/>
 
-[![GitHub](https://img.shields.io/badge/GitHub-@TU__USUARIO-181717?style=for-the-badge&logo=github)](https://github.com/TU_USUARIO)
+[![GitHub](https://img.shields.io/badge/GitHub-@juannredondo-181717?style=for-the-badge&logo=github)](https://github.com/juannredondo)
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:A855F7,100:6C63FF&height=120&section=footer" width="100%" />
 
